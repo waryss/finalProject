@@ -1,5 +1,6 @@
 package project.config;
 
+import project.dao.UserDao;
 import project.dao.impl.UserDaoImpl;
 import project.service.UserService;
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
@@ -29,7 +30,7 @@ public class ApplicationConfiguration {
     private Environment env;
 
     @Bean
-    public UserDaoImpl userDao() {
+    public UserDao userDao() {
         return new UserDaoImpl();
     }
 

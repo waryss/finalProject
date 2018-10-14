@@ -8,11 +8,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "USER")
 public class UserEntity {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     @Column(name = "name")
-    private String name;
-    @Column(name = "name")
+    private String login;
+    @Column(name = "password")
     private String password;
 
     public UserEntity() {
@@ -20,9 +21,9 @@ public class UserEntity {
     }
 
 
-    public UserEntity(Integer id, String name, String password) {
+    public UserEntity(Integer id, String login, String password) {
         this.id = id;
-        this.name = name;
+        this.login = login;
         this.password = password;
     }
 
@@ -35,12 +36,12 @@ public class UserEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

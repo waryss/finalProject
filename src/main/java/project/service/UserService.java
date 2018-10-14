@@ -6,18 +6,20 @@ import project.exception.ProjectException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import java.security.InvalidParameterException;
+
 public class UserService {
 
     @Autowired
     private UserDao userDao;
 
-    private UserEntity authenticate(String login, String password) throws ProjectException {
+    public UserEntity authenticate(String login, String password) throws ProjectException {
 
         if (StringUtils.isEmpty(login))
-            throw new ProjectException("[login] is mandatory");
+            throw new InvalidParameterException("[login] is mandatory");
 
         if (StringUtils.isEmpty(password))
-            throw new ProjectException("[password] is mandatory");
+            throw new InvalidParameterException("[password] is mandatory");
 
         return userDao.findByLoginAndPassword(login, password)
                 .orElseThrow(
