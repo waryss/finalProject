@@ -33,7 +33,7 @@ w<?xml version="1.0" encoding="UTF-8"?>
         </property>
     </bean>
 
-    <bean id="dao" class="module11.dao.EmployeeDao">
+    <bean id="finalProject.service" class="module11.finalProject.service.EmployeeDao">
         <property name="sessionFactory" ref="mysessionFactory"/>
     </bean>
 

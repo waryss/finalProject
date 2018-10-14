@@ -1,4 +1,4 @@
-package finalProject.model;
+package finalProject.dao.entity;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "USER")
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
@@ -15,12 +15,12 @@ public class User {
     @Column(name = "name")
     private String password;
 
-    public User() {
+    public UserEntity() {
 
     }
 
 
-    public User(Integer id, String name, String password) {
+    public UserEntity(Integer id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;
