@@ -1,19 +1,18 @@
 package finalProject.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
 
-@Table(name="USER")
 @Entity
+@Table(name = "USER")
 public class User {
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="name")
+    @Column(name = "name")
     private String password;
 
     public User() {
