@@ -1,6 +1,5 @@
-package finalProject.dao.impl;
+package project.dao.impl;
 
-import finalProject.dao.IGenericDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +17,7 @@ import java.util.List;
  * @param <PK>
  */
 @Repository
-public abstract class GenericDao<T, PK> implements IGenericDao<T, PK> {
+public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T, PK> {
 
     private Class<T> type;
 
@@ -28,7 +27,7 @@ public abstract class GenericDao<T, PK> implements IGenericDao<T, PK> {
     /**
      * Empty constructor. The real type T is found with generic reflection
      */
-    GenericDao() {
+    GenericDaoImpl() {
         this.type = this.getParameterizedType(this.getClass());
     }
 

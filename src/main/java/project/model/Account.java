@@ -1,4 +1,4 @@
-package finalProject.model;
+package project.model;
 
 public abstract class Account {
     private int accountNumber;

@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>co.edureka</groupId>
-    <artifactId>finalProject</artifactId>
+    <artifactId>project</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
@@ -10,7 +10,7 @@
         <java.version>1.8</java.version>
         <spring.version>5.1.0.RELEASE</spring.version>
     </properties>
-    <name>finalProject Maven Webapp</name>
+    <name>project Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -62,7 +62,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>finalProject</finalName>
+        <finalName>project</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

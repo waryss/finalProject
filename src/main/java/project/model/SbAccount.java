@@ -1,11 +1,13 @@
-package finalProject.model;
+package project.model;
 
-public final class CurrentAccount extends Account {
-    private final int minBalance = 1000;
+public final class SbAccount extends Account {
+    final double interest = 0.04;
+    private final int minBalance = 3000;
 
-    public CurrentAccount(int an, String n, int a) {
+    public SbAccount(int an, String n, int a) {
         super(an, n, a);
     }
+
 
     @Override
     public void deposit(int depositAmount) {
@@ -23,4 +25,6 @@ public final class CurrentAccount extends Account {
 
 
     }
+
+
 }

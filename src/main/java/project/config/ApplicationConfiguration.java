@@ -1,6 +1,7 @@
-package finalProject.config;
+package project.config;
 
-import finalProject.dao.impl.UserDao;
+import project.dao.impl.UserDaoImpl;
+import project.service.UserService;
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,20 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({"classpath:application.properties"})
-@ComponentScan({"finalProject"})
+@ComponentScan({"project"})
 public class ApplicationConfiguration {
+
     @Autowired
     private Environment env;
 
     @Bean
-    public UserDao userDao() {
-        return new UserDao();
+    public UserDaoImpl userDao() {
+        return new UserDaoImpl();
+    }
+
+    @Bean
+    public UserService userService() {
+        return new UserService();
     }
 
     @Bean
@@ -36,7 +43,7 @@ public class ApplicationConfiguration {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
         sessionFactory.setPackagesToScan(
-                "net.citation.citation_api.dao.entity");
+                "project.dao.entity");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;

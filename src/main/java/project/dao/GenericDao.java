@@ -1,4 +1,4 @@
-package finalProject.dao;
+package project.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import java.util.List;
  * @param <T>
  * @param <PK>
  */
-public interface IGenericDao<T, PK> {
+public interface GenericDao<T, PK> {
 
     void flush();
 
