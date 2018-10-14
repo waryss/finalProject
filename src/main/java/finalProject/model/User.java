@@ -1,8 +1,19 @@
 package finalProject.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Table(name="USER")
+@Entity
 public class User {
+    @Id
     private Integer id;
+    @Column(name="name")
     private String name;
+    @Column(name="name")
     private String password;
 
     public User() {
