@@ -1,5 +1,6 @@
-<%@ page import="module9.db.JDBCHelper"%>
-<%@ page import="project.model.User"%>
+<%@page import="project.exception.ProjectException"%>
+<%@ page import="project.service.UserService"%>
+<%@ page import="project.dao.entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,36 +13,32 @@
  	Validating User with Email ${param.id} ...
 	<br/>
 	<%
-		User user = new User();
-	user.setName(request.getParameter("name"));
+		 UserEntity user = new UserEntity();
+	user.setLogin(request.getParameter("name"));
 		
 		user.setPassword(request.getParameter("password")) ;
 		System.out.println("User Details: "+user);
 		
 		// Saving the Object into Table
-		JDBCHelper helper = new JDBCHelper();
-		helper.createConnection();
-		boolean flag  = helper.loginUser(user);
-		helper.closeConnection();
-		
-		if(flag){
+		UserService service = new UserService();
+		try
+		{
+			service.authenticate(user.getLogin(), user.getPassword());
 			%>
-				<h3>Valid user></h3>
-				
+			<h3>Valid user></h3>
+			<% 
+			session.setAttribute("keyId", user.getLogin());
+			//pageContext.setAttribute("keyId", user.getLogin(), PageContext.SESSION_SCOPE);
+		}
+		catch(ProjectException e)
+		{
+			%>
+			<h3>Invalid user id/password </h3>
 			<%	
-				
-				
-				session.setAttribute("keyId", user.getName());
-								
-				pageContext.setAttribute("keyId", user.getName(), PageContext.SESSION_SCOPE);
 						
-				}else{
-			%>
-				<h3>Invalid user id/password </h3>
-			<%	
 			response.sendRedirect("login.html");
 				
 				}
-			%>
+		%>
  </body>
 </html> 

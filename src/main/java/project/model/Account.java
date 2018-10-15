@@ -1,26 +1,33 @@
 package project.model;
 
 public abstract class Account {
-    private int accountNumber;
-    private String name;
-    int amount;
-
-    public Account(int an, String n, int a) {
-        accountNumber = an;
-        name = n;
-        amount = a;
-
-    }
-
-    public void deposit(int depositAmount) {
-        amount = amount + depositAmount;
-    }
-
-
-    public void withdraw(int withdrawAmount) {
-        amount = amount - withdrawAmount;
-
-
-    }
-
+	long Account_Number;
+	String name;
+	double balance=0;
+	
+	public void deposit(double amount)
+	{
+		System.out.println("Amount Deposited "+amount);
+		balance += amount;
+	}
+	
+	public void withdraw(double amount)
+	{
+		System.out.println("Amount withdrawn.. "+amount);
+		balance -= amount;
+	}
+	
+	public void displayAccountDetails()
+	{
+		System.out.println("Displaying account details...");
+		System.out.println("Account no " + Account_Number );
+		System.out.println("Name " + name );
+	}
+	
+	public void displayBalance()
+	{
+		System.out.println("Balance is "+balance);
+	}
+	
 }
+
