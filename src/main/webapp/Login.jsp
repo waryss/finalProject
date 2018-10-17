@@ -19,7 +19,7 @@
 		user.setPassword(request.getParameter("password")) ;
 		System.out.println("User Details: "+user);
 		
-		// Saving the Object into Table
+		
 		UserService service = new UserService();
 		try
 		{

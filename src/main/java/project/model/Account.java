@@ -8,7 +8,7 @@ public abstract class Account {
 	public void deposit(double amount)
 	{
 		System.out.println("Amount Deposited "+amount);
-		balance += amount;
+		balance += amount; 
 	}
 	
 	public void withdraw(double amount)
