@@ -53,6 +53,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
     }
 
     List<T> getByCriteria(String key, Object value) {
+    	System.out.println("dans la finction entityManager = " + entityManager);
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);

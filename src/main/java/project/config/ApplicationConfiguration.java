@@ -1,8 +1,5 @@
 package project.config;
 
-import project.dao.UserDao;
-import project.dao.impl.UserDaoImpl;
-import project.service.UserService;
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,32 +12,29 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@EnableWebMvc
 @EnableTransactionManagement
 @PropertySource({"classpath:application.properties"})
 @ComponentScan({"project"})
 public class ApplicationConfiguration {
 
-    @Autowired
+    public ApplicationConfiguration() {
+		System.out.println("on est là!!!!!!! construct");
+	}
+
+	@Autowired
     private Environment env;
 
     @Bean
-    public UserDao userDao() {
-        return new UserDaoImpl();
-    }
-
-    @Bean
-    public UserService userService() {
-        return new UserService();
-    }
-
-    @Bean
     public LocalSessionFactoryBean sessionFactory() {
+    	System.out.println("on est là!!!!!!! sessionFactory");
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
         sessionFactory.setPackagesToScan(
@@ -63,6 +57,7 @@ public class ApplicationConfiguration {
 
     @Bean
     public EntityManager entityManager() {
+    	System.out.println("on est là!!!!!!!");
         return sessionFactory().getObject().createEntityManager();
     }
 
@@ -70,7 +65,7 @@ public class ApplicationConfiguration {
     @Autowired
     public HibernateTransactionManager transactionManager(
             SessionFactory sessionFactory) {
-
+    	System.out.println("on est là transactionManager!!!!!!!");
         HibernateTransactionManager txManager
                 = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);

@@ -5,13 +5,13 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class UserEntity {
     @Id
-    @Column(name = "id")
+    @Column(name = "idUser")
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    @Column(name = "name")
+    @Column(name = "id")
     private String login;
     @Column(name = "password")
     private String password;

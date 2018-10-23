@@ -7,6 +7,8 @@ public class Customer {
 	private String name;
 	private String dob;
 	private String adress;
+	public String email;
+	private List<Account> accountList;
 	
 	public Integer getId() {
 		return id;
@@ -57,8 +59,7 @@ public class Customer {
 		this.accountList = accountList;
 	}
 
-	public String email;
-	private List<Account> accountList;
+	
 	
 
 

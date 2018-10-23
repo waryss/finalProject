@@ -4,6 +4,7 @@ public abstract class Account {
 	long Account_Number;
 	String name;
 	double balance=0;
+	Integer customer_id;
 	
 	public void deposit(double amount)
 	{
