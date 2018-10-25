@@ -10,8 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import project.config.ApplicationConfiguration;
-import project.dao.entity.UserEntity;
 import project.exception.ProjectException;
+import project.model.User;
 
 import java.security.InvalidParameterException;
 
@@ -41,7 +41,7 @@ public class UserServiceTest extends TestCase {
     @Ignore
     @Test
     public void when_authenticate_with_valid_credentials_the_get_user() throws ProjectException {
-        UserEntity authenticate = tested.authenticate("valid_login", "valid_password");
+        User authenticate = tested.authenticate("valid_login", "valid_password");
         Assert.assertNotNull(authenticate);
     }
 }

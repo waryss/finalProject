@@ -2,7 +2,7 @@ package project.dao.impl;
 
 import project.config.ApplicationConfiguration;
 import project.dao.UserDao;
-import project.dao.entity.UserEntity;
+import project.model.User;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -23,7 +23,7 @@ public class UserDaoTest extends TestCase {
     @Test
     @Ignore
     public void when_create_user_with_id_then_get_persisted_user_with_the_same_id() {
-        UserEntity userEntity = new UserEntity(1, "toto", "toto");
+        User userEntity = new User(1, "toto", "toto");
         tested.persist(userEntity);
         Assert.assertNotNull(tested.find(1));
     }

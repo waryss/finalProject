@@ -1,11 +1,35 @@
 package project.model;
 
-public abstract class Account {
+import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "account")
+public  class Account {
+	@Id
+    @Column(name = "accountid")
+    @GeneratedValue(strategy = IDENTITY)
 	long Account_Number;
+	@Column(name = "type")
 	String name;
-	double balance=0;
-	Integer customer_id;
+	@Column(name = "balance")
+	double balance;
 	
+	
+	@Override
+	public String toString() {
+		return "Account [Account_Number=" + Account_Number + ", name=" + name + ", balance=" + balance + "]";
+	}
+
+	public Account(String type) {
+		this.name = type;
+	}
+
 	public void deposit(double amount)
 	{
 		System.out.println("Amount Deposited "+amount);

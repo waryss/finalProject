@@ -38,7 +38,7 @@ public class ApplicationConfiguration {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
         sessionFactory.setPackagesToScan(
-                "project.dao.entity");
+                "project.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;

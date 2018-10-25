@@ -24,12 +24,12 @@
 
 	<br />
 	<%
-		try {
-			User user = service.authenticate(request.getParameter("name"), request.getParameter("password"));
-			session.setAttribute("keyLogin", user.getLogin());
-			session.setAttribute("keyId", user.getId());
-			response.sendRedirect("Menu.jsp");
-		} catch (ProjectException e) {
+			try {
+				service.createCustomer(
+						request.getParameter("name"), request.getParameter("dob"), 
+						request.getParameter("adress"), request.getParameter("email"), 
+						request.getParameter("accounttype"));
+			} catch (ProjectException e) {
 	%>
 	<h3>Invalid user id/password</h3>
 	<%
