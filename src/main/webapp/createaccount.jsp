@@ -25,10 +25,11 @@
 	<br />
 	<%
 			try {
-				service.createCustomer(
+				service.createAccount(
 						request.getParameter("name"), request.getParameter("dob"), 
 						request.getParameter("adress"), request.getParameter("email"), 
 						request.getParameter("accounttype"));
+				
 			} catch (ProjectException e) {
 	%>
 	<h3>Invalid user id/password</h3>

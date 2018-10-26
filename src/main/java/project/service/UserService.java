@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 
 import com.google.protobuf.DescriptorProtos.SourceCodeInfoOrBuilder;
 
-import project.dao.CustomerDao;
+import project.dao.AccountDao;
 import project.dao.UserDao;
 import project.exception.ProjectException;
 import project.model.Account;
@@ -22,7 +22,7 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	@Autowired
-	private CustomerDao customerDao;
+	private AccountDao customerDao;
 
 	public User authenticate(String login, String password) throws ProjectException {
 
@@ -31,16 +31,16 @@ public class UserService {
 
 		if (StringUtils.isEmpty(password))
 			throw new InvalidParameterException("[password] is mandatory");
-		System.out.println("dans la finction userDao = " + userDao);
 		return userDao.findByLoginAndPassword(login, password)
 				.orElseThrow(() -> new ProjectException("Could not found user for given login and password"));
 	}
 
-	public Customer createCustomer(String name, String dob, String adress, String email, String type)
+	public Account createAccount(String name, String dob, String adress, String email, String type)
 			throws ProjectException {
-		Customer newCustomer = new Customer(name, LocalDate.parse(dob), adress, email, new Account(type));
-		System.out.println(newCustomer);
-		customerDao.persist(newCustomer);
-		return newCustomer;
+		Account newAccount = new Account(name, LocalDate.parse(dob), adress, email, type);
+		System.out.println(newAccount);
+		customerDao.persist(newAccount);
+		customerDao.flush();
+		return newAccount;
 	}
 }
