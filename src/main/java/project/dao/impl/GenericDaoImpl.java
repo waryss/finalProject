@@ -1,9 +1,9 @@
 package project.dao.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -21,7 +21,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
 
     private Class<T> type;
 
-    @Autowired
+    @PersistenceContext
     private EntityManager entityManager;
 
     /**
