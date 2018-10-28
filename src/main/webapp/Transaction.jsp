@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Banking System</title>
 </head>
-<body>
+<body> 
 
 </body>
 </html>

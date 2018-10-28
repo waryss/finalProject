@@ -100,6 +100,12 @@ public class Transaction {
 	public void setAvailableBalance(String availableBalance) {
 		this.availableBalance = availableBalance;
 	}
+	@Override
+	public String toString() {
+		return "Transaction [transid=" + transid + ", transdate=" + transdate + ", description=" + description
+				+ ", chequeNumber=" + chequeNumber + ", withdraw=" + withdraw + ", deposit=" + deposit
+				+ ", availableBalance=" + availableBalance + "]";
+	}
 
 
 

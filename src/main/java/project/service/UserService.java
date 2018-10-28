@@ -1,5 +1,12 @@
 package project.service;
 
+<<<<<<< HEAD
+=======
+import java.security.InvalidParameterException;
+import java.time.LocalDate;
+import java.util.Date;
+
+>>>>>>> ajout du model transaction
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -7,6 +14,10 @@ import project.dao.AccountDao;
 import project.dao.UserDao;
 import project.exception.ProjectException;
 import project.model.Account;
+<<<<<<< HEAD
+=======
+import project.model.Transaction;
+>>>>>>> ajout du model transaction
 import project.model.User;
 
 import javax.transaction.Transactional;
@@ -78,5 +89,15 @@ public class UserService {
 		double balance =account.getBalance();
 		return balance -= amount;
 	}
+<<<<<<< HEAD
 >>>>>>> ajout des transactions et des operations de retrait et depot dans le
+=======
+	
+	/*public Transaction createTransaction(Integer transid, Date transdate, String description, Integer chequeNumber, Integer withdraw,
+			Integer deposit, String availableBalance)
+					throws ProjectException {
+		Transaction transaction = new Transaction(transid, transdate, description, chequeNumber, withdraw, deposit, availableBalance);
+		return transaction;
+	}*/
+>>>>>>> ajout du model transaction
 }
