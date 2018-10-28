@@ -1,6 +1,7 @@
 package project.dao.impl;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,7 +21,10 @@ import java.util.List;
 public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T, PK> {
 
     private Class<T> type;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ajout des transactions et des operations de retrait et depot dans le
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -96,7 +100,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
         return entityManager.merge(o);
     }
 
-
+    @Transactional
     public void persist(T o) {
         entityManager.persist(o);
     }

@@ -28,7 +28,7 @@
 			User user = service.authenticate(request.getParameter("name"), request.getParameter("password"));
 			session.setAttribute("keyLogin", user.getLogin());
 			session.setAttribute("keyId", user.getId());
-			response.sendRedirect("Menu.jsp");
+			response.sendRedirect("Menu.html");
 		} catch (ProjectException e) {
 	%>
 	<h3>Invalid user id/password</h3>

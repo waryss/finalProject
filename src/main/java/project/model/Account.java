@@ -21,8 +21,8 @@ public  class Account {
 	String name;
 	@Column(name = "dob")
 	private LocalDate dob;
-	@Column(name = "adress")
-	private String adress;
+	@Column(name = "address")
+	private String address;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "type")
@@ -31,10 +31,10 @@ public  class Account {
 	@Column(name = "balance")
 	private double balance;
 	
-	public Account( String name, LocalDate dob, String adress, String email, String type) {
+	public Account( String name, LocalDate dob, String address, String email, String type) {
 		this.name = name;
 		this.dob = dob;
-		this.adress = adress;
+		this.address = address;
 		this.email = email;
 		this.type = type;
 		this.balance = 0;
@@ -42,7 +42,7 @@ public  class Account {
 
 	@Override
 	public String toString() {
-		return "Account [Account_Number=" + Account_Number + ", name=" + name + ", dob=" + dob + ", adress=" + adress
+		return "Account [Account_Number=" + Account_Number + ", name=" + name + ", dob=" + dob + ", address=" + address
 				+ ", email=" + email + ", type=" + type + ", balance=" + balance + "]";
 	}
 
@@ -76,12 +76,12 @@ public  class Account {
 		this.dob = dob;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getEmail() {
@@ -108,29 +108,9 @@ public  class Account {
 		this.balance = balance;
 	}
 
-	public void deposit(double amount)
-	{
-		System.out.println("Amount Deposited "+amount);
-		balance += amount; 
-	}
 	
-	public void withdraw(double amount)
-	{
-		System.out.println("Amount withdrawn.. "+amount);
-		balance -= amount;
-	}
 	
-	public void displayAccountDetails()
-	{
-		System.out.println("Displaying account details...");
-		System.out.println("Account no " + Account_Number );
-		System.out.println("Name " + name );
-	}
 	
-	public void displayBalance()
-	{
-		System.out.println("Balance is "+balance);
-	}
 	
 }
 

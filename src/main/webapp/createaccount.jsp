@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login</title>
+<title>Banking system</title>
 </head>
 <body>
 
@@ -27,12 +27,15 @@
 			try {
 				service.createAccount(
 						request.getParameter("name"), request.getParameter("dob"), 
-						request.getParameter("adress"), request.getParameter("email"), 
+						request.getParameter("address"), request.getParameter("email"), 
 						request.getParameter("accounttype"));
-				
+				%><h3>Account successfully created</h3>
+				<a href="Menu.html">click here for to perform other operation</a>
+				<%
 			} catch (ProjectException e) {
 	%>
-	<h3>Invalid user id/password</h3>
+	<h3>Account not created</h3>
+	<a href="Menu.html">click here for to perform other operation</a>
 	<%
 		response.sendRedirect("login.html");
 
