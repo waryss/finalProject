@@ -1,4 +1,4 @@
-<%@page import="project.exception.ProjectException"%>
+<%@ page import="project.exception.ProjectException"%>
 <%@ page import="project.service.UserService"%>
 <%@ page import="project.model.User"%>
 

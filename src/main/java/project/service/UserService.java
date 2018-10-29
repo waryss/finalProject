@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import project.dao.AccountDao;
+import project.dao.TransactionDao;
 import project.dao.UserDao;
 import project.exception.ProjectException;
 import project.model.Account;
@@ -56,7 +57,9 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	@Autowired
-	private AccountDao customerDao;
+	private AccountDao accountDao;
+/*	@Autowired
+	private TransactionDao transactionDao;*/
 
 	public User authenticate(String login, String password) throws ProjectException {
 
@@ -73,21 +76,30 @@ public class UserService {
 			throws ProjectException {
 		Account newAccount = new Account(name, LocalDate.parse(dob), address, email, type);
 		System.out.println(newAccount);
-		customerDao.persist(newAccount);
+		accountDao.persist(newAccount);
 		
 		return newAccount;
 	}
 	
-	public double deposit(Account account,double amount)
-	{
-		double balance =account.getBalance();
-		return balance += amount; 
+	public Account getAccount(int accountid) {
+		return accountDao.find(accountid);
 	}
 	
-	public double withdraw(Account account,double amount)
+	
+	public void deposit(Account account,double amount)
 	{
 		double balance =account.getBalance();
-		return balance -= amount;
+		balance += amount; 
+		account.setBalance(balance);
+		accountDao.persist(account);
+	}
+	
+	public void withdraw(Account account,double amount)
+	{
+		double balance =account.getBalance();
+		balance -= amount;
+		account.setBalance(balance);
+		accountDao.persist(account);
 	}
 <<<<<<< HEAD
 >>>>>>> ajout des transactions et des operations de retrait et depot dans le
