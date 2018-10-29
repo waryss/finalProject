@@ -26,15 +26,14 @@ import java.util.Properties;
 public class ApplicationConfiguration {
 
     public ApplicationConfiguration() {
-		System.out.println("on est là!!!!!!! construct");
-	}
+        System.out.println("on est là!!!!!!! construct");
+    }
 
-	@Autowired
+    @Autowired
     private Environment env;
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
-    	System.out.println("on est là!!!!!!! sessionFactory");
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
         sessionFactory.setPackagesToScan(
@@ -57,7 +56,6 @@ public class ApplicationConfiguration {
 
     @Bean
     public EntityManager entityManager() {
-    	System.out.println("on est là!!!!!!!");
         return sessionFactory().getObject().createEntityManager();
     }
 
@@ -65,7 +63,6 @@ public class ApplicationConfiguration {
     @Autowired
     public HibernateTransactionManager transactionManager(
             SessionFactory sessionFactory) {
-    	System.out.println("on est là transactionManager!!!!!!!");
         HibernateTransactionManager txManager
                 = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);
