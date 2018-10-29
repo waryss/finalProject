@@ -1,12 +1,10 @@
 package project.service;
 
-<<<<<<< HEAD
-=======
+
 import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.Date;
 
->>>>>>> ajout du model transaction
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -15,10 +13,9 @@ import project.dao.TransactionDao;
 import project.dao.UserDao;
 import project.exception.ProjectException;
 import project.model.Account;
-<<<<<<< HEAD
-=======
+
 import project.model.Transaction;
->>>>>>> ajout du model transaction
+
 import project.model.User;
 
 import javax.transaction.Transactional;
@@ -28,32 +25,6 @@ import java.time.LocalDate;
 @Service(value = "service")
 public class UserService {
 
-<<<<<<< HEAD
-    @Autowired
-    private UserDao userDao;
-    @Autowired
-    private AccountDao customerDao;
-
-    public User authenticate(String login, String password) throws ProjectException {
-
-        if (StringUtils.isEmpty(login))
-            throw new InvalidParameterException("[login] is mandatory");
-
-        if (StringUtils.isEmpty(password))
-            throw new InvalidParameterException("[password] is mandatory");
-        return userDao.findByLoginAndPassword(login, password)
-                .orElseThrow(() -> new ProjectException("Could not found user for given login and password"));
-    }
-
-    @Transactional
-    public Account createAccount(String name, String dob, String adress, String email, String type)
-            throws ProjectException {
-        Account newAccount = new Account(name, LocalDate.parse(dob), adress, email, type);
-        System.out.println(newAccount);
-        customerDao.persist(newAccount);
-        return newAccount;
-    }
-=======
 	@Autowired
 	private UserDao userDao;
 	@Autowired
@@ -101,15 +72,11 @@ public class UserService {
 		account.setBalance(balance);
 		accountDao.merge(account);
 	}
-<<<<<<< HEAD
->>>>>>> ajout des transactions et des operations de retrait et depot dans le
-=======
-	
+
 	/*public Transaction createTransaction(Integer transid, Date transdate, String description, Integer chequeNumber, Integer withdraw,
 			Integer deposit, String availableBalance)
 					throws ProjectException {
 		Transaction transaction = new Transaction(transid, transdate, description, chequeNumber, withdraw, deposit, availableBalance);
 		return transaction;
 	}*/
->>>>>>> ajout du model transaction
 }

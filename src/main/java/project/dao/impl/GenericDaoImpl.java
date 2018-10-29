@@ -21,10 +21,7 @@ import java.util.List;
 public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T, PK> {
 
     private Class<T> type;
-<<<<<<< HEAD
 
-=======
->>>>>>> ajout des transactions et des operations de retrait et depot dans le
     @PersistenceContext
     private EntityManager entityManager;
 
