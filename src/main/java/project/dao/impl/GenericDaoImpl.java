@@ -95,7 +95,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
         return type;
     }
 
-
+    @Transactional
     public T merge(T o) {
         return entityManager.merge(o);
     }

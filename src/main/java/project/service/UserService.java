@@ -91,7 +91,7 @@ public class UserService {
 		double balance =account.getBalance();
 		balance += amount; 
 		account.setBalance(balance);
-		accountDao.persist(account);
+		accountDao.merge(account);
 	}
 	
 	public void withdraw(Account account,double amount)
@@ -99,7 +99,7 @@ public class UserService {
 		double balance =account.getBalance();
 		balance -= amount;
 		account.setBalance(balance);
-		accountDao.persist(account);
+		accountDao.merge(account);
 	}
 <<<<<<< HEAD
 >>>>>>> ajout des transactions et des operations de retrait et depot dans le

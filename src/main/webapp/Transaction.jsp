@@ -22,28 +22,19 @@
 </head>
 <body> 
 <%	
-			try {
+			
 				int accountid=Integer.parseInt(request.getParameter("accountnumber"));
 				int amount=Integer.parseInt(request.getParameter("amount"));
 				Account account=service.getAccount(accountid);
 				if(request.getParameter("operation").equals("credit"))
-					service.deposit(account,amount);
+					{service.deposit(account,amount);
 				%><h3>Account successfully credited</h3>
 				<a href="Menu.html">click here for to perform other operation</a>
-				<%
+				<%}
 				if(request.getParameter("operation").equals("debit"))
-					service.withdraw(account,amount);
+					{service.withdraw(account,amount);
 						%><h3>Account successfully debited</h3>
 						<a href="Menu.html">click here for to perform other operation</a>
-						<%
-			} catch (ProjectException e) {
-				%>
-				<h3>Invalid operation</h3>
-				<%
-					response.sendRedirect("Menu.html");
-
-					}
-		%>
-
+					<%} %>
 </body>
 </html>

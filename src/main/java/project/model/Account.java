@@ -31,6 +31,12 @@ public  class Account {
 	@Column(name = "balance")
 	private double balance;
 	
+	
+	
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Account( String name, LocalDate dob, String address, String email, String type) {
 		this.name = name;
 		this.dob = dob;
