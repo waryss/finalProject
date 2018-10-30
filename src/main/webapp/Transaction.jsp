@@ -1,37 +1,31 @@
-<%@ page import="org.springframework.context.ApplicationContext"%>
-<%@ page import="org.springframework.web.servlet.support.RequestContextUtils"%>
-<%@ page import="project.model.Account"%>
-
-<%@ page import="project.service.UserService"%>
-
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
 <%
-	ApplicationContext ac = RequestContextUtils.findWebApplicationContext(request);
-
-	UserService service = (UserService) (ac != null ? ac.getBean("service") : null);
+    if(session.getAttribute("keyLogin") == null){
+        response.sendRedirect("login.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Banking System</title>
+    <meta charset="ISO-8859-1">
+    <title>transactions</title>
 </head>
 <body>
-<%
 
-				int accountid=Integer.parseInt(request.getParameter("accountnumber"));
-				int amount=Integer.parseInt(request.getParameter("amount"));
-				Account account=service.getAccount(accountid);
-				if(request.getParameter("operation").equals("credit")){
-				    service.deposit(account,amount);
-				%><h3>Account successfully credited</h3>
-				<a href="Menu.html">click here for to perform other operation</a>
-				<%}else if(request.getParameter("operation").equals("debit")){
-				    service.withdraw(account,amount);
-						%><h3>Account successfully debited</h3>
-						<a href="Menu.html">click here for to perform other operation</a>
-					<%} %>
+    <br/>
+    <h3>Perform Debit or Credit Operations </h3>
+    <br/>
+    
+    <form action="actions/addTransaction.jsp" method="post">
+       Account number : <input type="text" name="accountnumber" />
+        <br/>
+       Amount : <input type="text" name="amount"/>
+        <br/>
+        <input type="submit" value="credit" name="operation"/>
+        <input type="submit" value="debit" name ="operation"/>
+        
+    </form>
 </body>
 </html>
