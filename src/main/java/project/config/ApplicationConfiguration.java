@@ -26,7 +26,7 @@ import java.util.Properties;
 public class ApplicationConfiguration {
 
     public ApplicationConfiguration() {
-        System.out.println("on est là!!!!!!! construct");
+        
     }
 
     @Autowired
