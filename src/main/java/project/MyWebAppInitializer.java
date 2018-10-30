@@ -11,8 +11,7 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
     
 	
 	@Override
-	public void onStartup(ServletContext container) throws ServletException {
-		System.out.println("dans la finction onstartup");
+	public void onStartup(ServletContext container) throws ServletException {	
 	    AnnotationConfigWebApplicationContext context
         = new AnnotationConfigWebApplicationContext();
       context.setConfigLocation("project.config");

@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.time.LocalDate"%>
 <%@ page import="org.springframework.context.ApplicationContext"%>
 <%@ page import="org.springframework.web.servlet.support.RequestContextUtils"%>
 <%@ page import="project.model.Account"%>
@@ -24,12 +26,16 @@
 				int accountid=Integer.parseInt(request.getParameter("accountnumber"));
 				int amount=Integer.parseInt(request.getParameter("amount"));
 				Account account=service.getAccount(accountid);
+				Date date= new Date();
 				if(request.getParameter("operation").equals("credit")){
 				    service.deposit(account,amount);
+				    service.createTransaction(date, "deposit", 0, amount, account.getBalance());
+
 				%><h3>Account successfully credited</h3>
 				<a href="../menu.jsp">click here for to perform other operation</a>
 				<%}else if(request.getParameter("operation").equals("debit")){
 				    service.withdraw(account,amount);
+				    service.createTransaction(date, "withdraw", amount, 0, account.getBalance());
 						%><h3>Account successfully debited</h3>
 						<a href="../menu.jsp">click here for to perform other operation</a>
 					<%} %>

@@ -63,8 +63,8 @@ public class UserService {
         accountDao.merge(account);
     }
 
-    public Transaction createTransaction(Integer transid, Date transdate, String description, Integer chequeNumber, Integer withdraw,
-                                         Integer deposit, String availableBalance) {
-        return new Transaction(transid, transdate, description, chequeNumber, withdraw, deposit, availableBalance);
+    public Transaction createTransaction(Date transdate, String description,  Integer withdraw,
+                                         Integer deposit, Double availableBalance) {
+        return new Transaction(transdate, description,  withdraw, deposit, availableBalance);
     }
 }

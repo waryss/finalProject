@@ -28,16 +28,14 @@ public class Transaction {
 	@Column(name = "deposit")
 	private Integer deposit;
 	@Column(name = "availableBalance")
-	private String availableBalance;
+	private Double availableBalance;
 
 	
-	
-	public Transaction(Integer transid, Date transdate, String description, Integer chequeNumber, Integer withdraw,
-			Integer deposit, String availableBalance) {
-		this.transid = transid;
+
+	public Transaction(Date transdate, String description, Integer withdraw,
+			Integer deposit, Double availableBalance) {
 		this.transdate = transdate;
 		this.description = description;
-		this.chequeNumber = chequeNumber;
 		this.withdraw = withdraw;
 		this.deposit = deposit;
 		this.availableBalance = availableBalance;
@@ -93,11 +91,11 @@ public class Transaction {
 		this.deposit = deposit;
 	}
 
-	public String getAvailableBalance() {
+	public Double getAvailableBalance() {
 		return availableBalance;
 	}
 
-	public void setAvailableBalance(String availableBalance) {
+	public void setAvailableBalance(Double availableBalance) {
 		this.availableBalance = availableBalance;
 	}
 	@Override
