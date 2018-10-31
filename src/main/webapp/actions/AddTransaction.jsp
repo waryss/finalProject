@@ -36,6 +36,8 @@
 				    service.createTransaction(date, "withdraw", amount, 0, account.getBalance());
 						%><h3>Account successfully debited</h3>
 						<a href="../Menu.jsp">click here for to perform other operation</a>
-					<%} %>
+					<%}
+						session.setAttribute("keyAccountId", account.getAccountNumber());
+					%>
 </body>
 </html>

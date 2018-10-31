@@ -11,7 +11,7 @@ public class User {
     @Column(name = "idUser")
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    @Column(name = "id")
+    @Column(name = "login")
     private String login;
     @Column(name = "password")
     private String password;

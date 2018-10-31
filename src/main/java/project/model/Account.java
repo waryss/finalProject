@@ -13,7 +13,7 @@ public class Account {
     @Id
     @Column(name = "accountid")
     @GeneratedValue(strategy = IDENTITY)
-    private long Account_Number;
+    private long accountNumber;
     @Column(name = "name")
     private String name;
     @Column(name = "dob")
@@ -46,7 +46,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account [Account_Number=" + Account_Number + ", name=" + name + ", dob=" + dob + ", address=" + address
+        return "Account [accountNumber=" + accountNumber + ", name=" + name + ", dob=" + dob + ", address=" + address
                 + ", email=" + email + ", type=" + type + ", balance=" + balance + "]";
     }
 
@@ -55,12 +55,12 @@ public class Account {
         this.name = type;
     }
 
-    public long getAccount_Number() {
-        return Account_Number;
+    public long getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAccount_Number(long account_Number) {
-        Account_Number = account_Number;
+    public void setAccountNumber(long account_Number) {
+        accountNumber = account_Number;
     }
 
     public String getName() {

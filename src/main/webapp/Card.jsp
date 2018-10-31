@@ -9,7 +9,7 @@
     <title>Card</title>
 </head>
 <body>
-    <form action="actions/authoCard.jsp" method="post">
+    <form action="actions/ManageCard.jsp" method="post">
         card number :<input type="text" name="cardnumber" />
         <br/>
         amount :<input type="text" name="amount"/>

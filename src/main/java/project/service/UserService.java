@@ -69,7 +69,7 @@ public class UserService {
         return new Transaction(transdate, description,  withdraw, deposit, availableBalance);
     }
     
-    public List<Transaction> displayStatement(String dateFrom,String dateTo){
-    	return transactionDao.getStatement(LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
+    public List<Transaction> displayStatement(Integer accountNumber,String dateFrom,String dateTo){
+    	return transactionDao.getStatement(accountNumber,LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
     }
 }
