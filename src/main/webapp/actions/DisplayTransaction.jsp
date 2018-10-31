@@ -1,7 +1,6 @@
 <%@ page import="org.springframework.context.ApplicationContext" %>
 <%@ page import="org.springframework.web.servlet.support.RequestContextUtils" %>
 <%@ page import="project.service.UserService" %>
-<%@page import="project.exception.ProjectException"%>
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
@@ -17,13 +16,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% 
-		try {
-			service.displayStatement(request.getParameter("dateFrom"), request.getParameter("dateTo"));
-			
-		} catch (ProjectException e) {
-			e.printStackTrace();
-		}
-	%>
+<%
+	service.displayStatement(request.getParameter("dateFrom"), request.getParameter("dateTo"));
+
+%>
 </body>
 </html>
