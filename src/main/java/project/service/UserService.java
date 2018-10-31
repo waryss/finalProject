@@ -49,7 +49,7 @@ public class UserService {
         return newAccount;
     }
 
-    public Account getAccount(int accountId) {
+    public Account getAccount(Long accountId) {
         return accountDao.find(accountId);
     }
 
@@ -65,11 +65,13 @@ public class UserService {
     }
 
     public Transaction createTransaction(Date transdate, String description,  Integer withdraw,
-                                         Integer deposit, Double availableBalance) {
-        return new Transaction(transdate, description,  withdraw, deposit, availableBalance);
+                                         Integer deposit, Double availableBalance,Long accountId) {
+        Transaction newTransaction=new Transaction(transdate, description,  withdraw, deposit, availableBalance,accountId);
+        transactionDao.persist(newTransaction);
+        return newTransaction;
     }
     
-    public List<Transaction> displayStatement(Integer accountNumber,String dateFrom,String dateTo){
+    public List<Transaction> displayStatement(Long accountNumber,String dateFrom,String dateTo){
     	return transactionDao.getStatement(accountNumber,LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
     }
 }

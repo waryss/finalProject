@@ -13,7 +13,7 @@ import project.model.Transaction;
 @Repository
 public class TransactionDaoImpl extends GenericDaoImpl<Transaction, Integer> implements TransactionDao {
 	
-	public List<Transaction> getStatement(Integer accountNumber,LocalDate dateFrom,LocalDate dateTo){
+	public List<Transaction> getStatement(Long accountNumber,LocalDate dateFrom,LocalDate dateTo){
     	String hql = "From account_transactions where  accountid="+accountNumber+" and date between "+dateFrom+"and"+dateTo;
     	TypedQuery<Transaction> statementList = (TypedQuery<Transaction>) super.getEntityManager().createQuery(hql);
     	return statementList.getResultList();

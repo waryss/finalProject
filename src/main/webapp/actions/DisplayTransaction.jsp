@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%  Integer accountNumber= (Integer) session.getAttribute("keyAccountId");
+<%  Long accountNumber= (Long) session.getAttribute("keyAccountId");
     service.displayStatement(accountNumber,request.getParameter("dateFrom"), request.getParameter("dateTo"));
 
 %>

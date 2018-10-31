@@ -21,19 +21,19 @@
 <body>
 <%
 
-				int accountid=Integer.parseInt(request.getParameter("accountnumber"));
+				Long accountId= Long.valueOf(Integer.parseInt(request.getParameter("accountnumber")));
 				int amount=Integer.parseInt(request.getParameter("amount"));
-				Account account=service.getAccount(accountid);
+				Account account=service.getAccount(accountId);
 				Date date= new Date();
 				if(request.getParameter("operation").equals("credit")){
 				    service.deposit(account,amount);
-				    service.createTransaction(date, "deposit", 0, amount, account.getBalance());
+				    service.createTransaction(date, "deposit", 0, amount, account.getBalance(),accountId);
 
 				%><h3>Account successfully credited</h3>
 				<a href="../Menu.jsp">click here for to perform other operation</a>
 				<%}else if(request.getParameter("operation").equals("debit")){
 				    service.withdraw(account,amount);
-				    service.createTransaction(date, "withdraw", amount, 0, account.getBalance());
+				    service.createTransaction(date, "withdraw", amount, 0, account.getBalance(),accountId);
 						%><h3>Account successfully debited</h3>
 						<a href="../Menu.jsp">click here for to perform other operation</a>
 					<%}

@@ -30,15 +30,20 @@ public class Transaction {
 	@Column(name = "availableBalance")
 	private Double availableBalance;
 
+
+	@Column(name = "accountid")
+	private Long accountId;
+
 	
 
 	public Transaction(Date transdate, String description, Integer withdraw,
-			Integer deposit, Double availableBalance) {
+			Integer deposit, Double availableBalance,Long accountId) {
 		this.transdate = transdate;
 		this.description = description;
 		this.withdraw = withdraw;
 		this.deposit = deposit;
 		this.availableBalance = availableBalance;
+		this.accountId=accountId;
 	}
 	public Transaction() {
 		// TODO Auto-generated constructor stub
@@ -98,6 +103,15 @@ public class Transaction {
 	public void setAvailableBalance(Double availableBalance) {
 		this.availableBalance = availableBalance;
 	}
+
+	public Long getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
+	}
+
 	@Override
 	public String toString() {
 		return "Transaction [transid=" + transid + ", transdate=" + transdate + ", description=" + description

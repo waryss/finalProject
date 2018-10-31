@@ -4,6 +4,7 @@
 
 <%@ page import="org.springframework.context.ApplicationContext"%>
 <%@ page import="org.springframework.web.servlet.support.RequestContextUtils"%>
+<%@ page import="java.security.InvalidParameterException" %>
 
 <%@ page contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
@@ -26,12 +27,12 @@ UserService service = (UserService) (ac != null ? ac.getBean("service") : null);
 			User user = service.authenticate(request.getParameter("name"), request.getParameter("password"));
 			session.setAttribute("keyLogin", user.getLogin());
 			session.setAttribute("keyId", user.getId());
-			response.sendRedirect("Menu.jsp");
-		} catch (ProjectException e) {
+			response.sendRedirect("../Menu.jsp");
+		} catch (InvalidParameterException |ProjectException e) {
 	%>
 	<h3>Invalid user id/password</h3>
 	<%
-		response.sendRedirect("Login.jsp");
+		response.sendRedirect("../Login.jsp");
 
 		}
 	%>
