@@ -15,6 +15,7 @@ import project.model.User;
 import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Service(value = "service")
 public class UserService {
@@ -66,5 +67,9 @@ public class UserService {
     public Transaction createTransaction(Date transdate, String description,  Integer withdraw,
                                          Integer deposit, Double availableBalance) {
         return new Transaction(transdate, description,  withdraw, deposit, availableBalance);
+    }
+    
+    public List<Transaction> displayStatement(String dateFrom,String dateTo){
+    	return transactionDao.getStatement(LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
     }
 }

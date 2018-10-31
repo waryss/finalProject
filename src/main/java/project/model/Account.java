@@ -2,6 +2,8 @@ package project.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -25,10 +27,12 @@ public class Account {
 
     @Column(name = "balance")
     private double balance;
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountid")
+	private List<Transaction> transactionList=new ArrayList<>();
 
     public Account() {
-        // TODO Auto-generated constructor stub
+        
     }
 
     public Account(String name, LocalDate dob, String address, String email, String type) {
