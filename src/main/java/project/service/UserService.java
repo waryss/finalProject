@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import project.dao.AccountDao;
+import project.dao.CreditCardDao;
 import project.dao.TransactionDao;
 import project.dao.UserDao;
 import project.exception.ProjectException;
 import project.model.Account;
+import project.model.CreditCard;
 import project.model.Transaction;
 import project.model.User;
 
@@ -23,12 +25,14 @@ public class UserService {
     private final UserDao userDao;
     private final AccountDao accountDao;
     private final TransactionDao transactionDao;
+    private final CreditCardDao creditCardDao;
 
     @Autowired
-    public UserService(UserDao userDao, AccountDao accountDao, TransactionDao transactionDao) {
+    public UserService(UserDao userDao, AccountDao accountDao, TransactionDao transactionDao, CreditCardDao creditCardDao) {
         this.userDao = userDao;
         this.accountDao = accountDao;
         this.transactionDao = transactionDao;
+        this.creditCardDao= creditCardDao;
     }
 
     public User authenticate(String login, String password) throws ProjectException {
@@ -71,7 +75,11 @@ public class UserService {
         return newTransaction;
     }
     
-    public List<Transaction> displayStatement(Long accountNumber,String dateFrom,String dateTo){
-    	return transactionDao.getStatement(accountNumber,LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
+    public List<Transaction> displayStatement(Long accountId,String dateFrom,String dateTo){
+    	return transactionDao.getStatement(accountId,LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
+    }
+    public CreditCard getCard(Integer cardNumber){
+        CreditCard creditCard= creditCardDao.find(cardNumber);
+        return creditCard;
     }
 }

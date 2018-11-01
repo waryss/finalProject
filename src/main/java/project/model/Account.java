@@ -30,6 +30,9 @@ public class Account {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountid")
 	private List<Transaction> transactionList=new ArrayList<>();
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cardnumber")
+    private Integer cardNumber;
 
     public Account() {
         

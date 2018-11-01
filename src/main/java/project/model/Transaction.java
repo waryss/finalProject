@@ -114,11 +114,17 @@ public class Transaction {
 
 	@Override
 	public String toString() {
-		return "Transaction [transid=" + transid + ", transdate=" + transdate + ", description=" + description
-				+ ", chequeNumber=" + chequeNumber + ", withdraw=" + withdraw + ", deposit=" + deposit
-				+ ", availableBalance=" + availableBalance + "]";
+		return "Transaction{" +
+				"transid=" + transid +
+				", transdate=" + transdate +
+				", description='" + description + '\'' +
+				", chequeNumber=" + chequeNumber +
+				", withdraw=" + withdraw +
+				", deposit=" + deposit +
+				", availableBalance=" + availableBalance +
+				", accountId=" + accountId +
+				'}';
 	}
-
 
 
 }
