@@ -19,9 +19,9 @@ public interface GenericDao<T, PK> {
 
     T merge(T o);
 
-    T find(long l);
+    T find(PK l);
 
-    T getReference(long userId);
+    T getReference(PK userId);
 
     List<T> findAll();
 }

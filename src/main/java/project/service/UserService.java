@@ -76,7 +76,7 @@ public class UserService {
     }
     
     public List<Transaction> displayStatement(Long accountId,String dateFrom,String dateTo){
-    	return transactionDao.getStatement(accountId,LocalDate.parse(dateFrom),LocalDate.parse(dateTo));
+    	return transactionDao.getStatement(accountId,new Date(dateFrom), new Date(dateTo));
     }
     public CreditCard getCard(Integer cardNumber){
         CreditCard creditCard= creditCardDao.find(cardNumber);

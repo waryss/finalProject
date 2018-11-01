@@ -25,7 +25,7 @@ public class UserDaoTest extends TestCase {
     public void when_create_user_with_id_then_get_persisted_user_with_the_same_id() {
         User userEntity = new User(1, "toto", "toto");
         tested.persist(userEntity);
-        Assert.assertNotNull(tested.find(1));
+        Assert.assertNotNull(tested.find((long) 1));
     }
 
 }

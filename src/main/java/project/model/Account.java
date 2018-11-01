@@ -29,10 +29,10 @@ public class Account {
     private double balance;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountid")
-	private List<Transaction> transactionList=new ArrayList<>();
+	private List<Transaction> transactionList;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cardnumber")
-    private Integer cardNumber;
+    private CreditCard creditCard;
 
     public Account() {
         
@@ -120,6 +120,22 @@ public class Account {
 
     public void subtractToAmount(double amount){
         balance -= amount;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    public List<Transaction> getTransactionList() {
+        return transactionList;
+    }
+
+    public void setTransactionList(List<Transaction> transactionList) {
+        this.transactionList = transactionList;
     }
 }
 

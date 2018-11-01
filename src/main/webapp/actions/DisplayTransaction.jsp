@@ -18,11 +18,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%  //Long accountNumber= (Long) session.getAttribute("keyAccountId");
-    List<Transaction> list=service.displayStatement(request.getParameter("dateFrom"), request.getParameter("dateTo"));
-    for (Transaction transaction : list) {
-        System.out.println(transaction);
-    }
-%>
+
 </body>
 </html>

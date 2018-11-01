@@ -11,6 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 import java.lang.reflect.ParameterizedType;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
     }
 
 
-    public T find(long primaryKey) {
+    public T find(PK primaryKey) {
         return entityManager.find(type, primaryKey);
     }
 
@@ -62,18 +63,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
         query.where(builder.equal(root.get(key), value));
         return entityManager.createQuery(query).getResultList();
     }
-    public Root<T> getRoot(CriteriaBuilder builder){
-        return builder.createQuery(type).from(type);
-    }
-    public CriteriaBuilder getCriteriaBuilder(){
-        return entityManager.getCriteriaBuilder();
-    }
-    public List<T> getByCriteria(Expression<Boolean> criteria){
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery(type);
-        query.where(criteria);
-        return entityManager.createQuery(query).getResultList();
-    }
+
     /**
      * @return the entityManager
      */
@@ -93,7 +83,7 @@ public abstract class GenericDaoImpl<T, PK> implements project.dao.GenericDao<T,
     }
 
 
-    public T getReference(long primaryKey) {
+    public T getReference(PK primaryKey) {
         return entityManager.getReference(type, primaryKey);
     }
 
