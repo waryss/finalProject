@@ -2,7 +2,7 @@
 <%@page import="org.springframework.web.servlet.support.RequestContextUtils"%>
 <%@ page import="project.model.Account"%>
 <%@ page import="project.service.UserService"%>
-<%@ page import="java.util.Date"%>
+<%@ page import="java.util.LocalDate"%>
 
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -24,7 +24,7 @@
 				Long accountId= Long.valueOf(Integer.parseInt(request.getParameter("accountnumber")));
 				int amount=Integer.parseInt(request.getParameter("amount"));
 				Account account=service.getAccount(accountId);
-				Date date= new Date();
+				LocalDate date= new LocalDate();
 				if(request.getParameter("operation").equals("credit")){
 				    service.deposit(account,amount);
 				    service.createTransaction(date, "deposit", 0, amount, account.getBalance(),accountId);

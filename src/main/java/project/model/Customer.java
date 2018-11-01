@@ -1,13 +1,11 @@
 package project.model;
 
 import javax.persistence.*;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "customer")

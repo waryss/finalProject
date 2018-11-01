@@ -16,7 +16,6 @@ import project.model.User;
 
 import java.security.InvalidParameterException;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Service(value = "service")
@@ -32,7 +31,7 @@ public class UserService {
         this.userDao = userDao;
         this.accountDao = accountDao;
         this.transactionDao = transactionDao;
-        this.creditCardDao= creditCardDao;
+        this.creditCardDao = creditCardDao;
     }
 
     public User authenticate(String login, String password) throws ProjectException {
@@ -68,18 +67,19 @@ public class UserService {
         accountDao.merge(account);
     }
 
-    public Transaction createTransaction(Date transdate, String description,  Integer withdraw,
-                                         Integer deposit, Double availableBalance,Long accountId) {
-        Transaction newTransaction=new Transaction(transdate, description,  withdraw, deposit, availableBalance,accountId);
+    public Transaction createTransaction(LocalDate transdate, String description, Integer withdraw,
+                                         Integer deposit, Double availableBalance, Long accountId) {
+        Transaction newTransaction = new Transaction(transdate, description, withdraw, deposit, availableBalance, accountId);
         transactionDao.persist(newTransaction);
         return newTransaction;
     }
-    
-    public List<Transaction> displayStatement(Long accountId,String dateFrom,String dateTo){
-    	return transactionDao.getStatement(accountId,new Date(dateFrom), new Date(dateTo));
+
+    public List<Transaction> displayStatement(Long accountId, String dateFrom, String dateTo) {
+        return transactionDao.getStatement(accountId, LocalDate.parse(dateFrom), LocalDate.parse(dateTo));
     }
-    public CreditCard getCard(Integer cardNumber){
-        CreditCard creditCard= creditCardDao.find(cardNumber);
+
+    public CreditCard getCard(Integer cardNumber) {
+        CreditCard creditCard = creditCardDao.find(cardNumber);
         return creditCard;
     }
 }

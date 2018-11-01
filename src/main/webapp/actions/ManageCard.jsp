@@ -2,11 +2,11 @@
 <%@ page import="org.springframework.context.ApplicationContext" %>
 <%@ page import="org.springframework.web.servlet.support.RequestContextUtils" %>
 <%@ page import="project.model.Account" %>
-<%@ page import="java.util.Date" %>
+<%@ page import="java.util.LocalDate" %>
 <%@ page import="project.model.CreditCard" %><%--
   Created by IntelliJ IDEA.
   User: Glenn MANFOUMBI
-  Date: 31/10/2018
+  LocalDate: 31/10/2018
   Time: 19:21
   To change this template use File | Settings | File Templates.
 --%>
@@ -26,7 +26,7 @@
     <% int cardNumber=Integer.parseInt(request.getParameter("cardnumber"));
         int amount=Integer.parseInt(request.getParameter("amount"));
         CreditCard card= service.getCard(cardNumber);
-        Date date= new Date();
+        LocalDate date= new LocalDate();
         if(card!=null) {
             Account account=service.getAccount(card.getAccountId());
             service.withdraw(account, amount);
