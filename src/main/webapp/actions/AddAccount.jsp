@@ -28,7 +28,7 @@
 %><h3>Account successfully created</h3>
 <a href="../Menu.jsp">click here for to perform other operation</a>
 <%
-    // exception générique au cas où il y a un pb lors de l'insert
+
 } catch (Exception e) {
 %>
 <h3>Account not created</h3>

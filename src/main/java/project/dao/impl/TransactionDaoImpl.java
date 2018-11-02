@@ -17,7 +17,7 @@ public class TransactionDaoImpl extends GenericDaoImpl<Transaction, Integer> imp
         CriteriaBuilder builder = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<Transaction> query = builder.createQuery(Transaction.class);
         Root<Transaction> root = query.from(Transaction.class);
-        query.where(builder.equal(root.get("accountId"), accountId)).where(builder.between(root.get("transdate"), dateFrom, dateTo));
+        query.where(builder.equal(root.get("accountId"), accountId)).having(builder.between(root.get("transdate"), dateFrom, dateTo));
         return getEntityManager().createQuery(query).getResultList();
     }
 }

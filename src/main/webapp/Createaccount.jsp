@@ -13,21 +13,20 @@
     <title>Banking system</title>
 </head>
 <body>
-<center>
     <br/>
     <h3>Banking system </h3>
     <br/>
     
     <form action="actions/AddAccount.jsp" method="post">
-        name : <input type="text" name="name" />
+        Name : <input type="text" name="name" />
         <br/>
          DOB:<input type="text" name="dob" />
         <br/>
-         adress :
+         Address :
            <br/>
          <textarea rows="4" cols="50" name="address"></textarea>
         <br/>
-         email :<input type="text" name="email" />
+         Email :<input type="text" name="email" />
         <br/>
         Type of account<SELECT name="accounttype" size="1">
 		<OPTION>Current
@@ -36,6 +35,6 @@
         <br/>
         <input type="submit" value="create account"/>
     </form>
-</center>
+
 </body>
 </html>
